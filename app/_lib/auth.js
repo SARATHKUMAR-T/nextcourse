@@ -16,9 +16,11 @@ const authConfig = {
         password: {},
       },
       authorize: async (credentials) => {
+        console.log("authorize called");
+        
         const user = await getGuest(credentials.email)
         if (!user) {
-          throw new Error("User not found.")
+          return {message:'no user found'}
         }
         return user
       },

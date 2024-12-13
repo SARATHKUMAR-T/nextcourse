@@ -40,6 +40,15 @@ export async function signOutAction() {
   await signOut({ redirectTo: '/' })
 }
 
+export async function credentialsSignIn(credentials){
+  try {
+   const res= await signIn("credentials", credentials)
+   console.log(res,"response");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function deleteReservation(bookingId) {
 
   await new Promise((res) => setTimeout(res, 2000));
